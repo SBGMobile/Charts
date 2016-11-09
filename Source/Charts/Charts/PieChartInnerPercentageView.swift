@@ -33,7 +33,7 @@ open class PieChartInnerPercentageView : PieChartView {
 
     override func initialize() {
         super.initialize()
-        renderer = PieChartInnerPercentageCircleRenderer(innnerChart: self, animator: _animator, viewPortHandler: _viewPortHandler)
+        renderer = PieChartInnerPercentageCircleRenderer(self, _animator, _viewPortHandler)
         _xAxis = nil
         self.highlighter = PieHighlighter(chart: self)
     }
@@ -51,11 +51,17 @@ open class PieChartInnerPercentageView : PieChartView {
         get{
             return _postiveColor!
         }
+        set{
+            _postiveColor = newValue
+        }
     }
     
     public var negativeColor : UIColor {
         get{
             return _negativeColor!
+        }
+        set{
+            _negativeColor = newValue
         }
     }
 }

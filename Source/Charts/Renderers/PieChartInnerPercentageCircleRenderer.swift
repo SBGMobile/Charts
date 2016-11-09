@@ -17,7 +17,7 @@ open class PieChartInnerPercentageCircleRenderer : PieChartRenderer {
     
     var _innerChart : PieChartInnerPercentageView?
 
-    public init(innnerChart: PieChartInnerPercentageView?, animator: Animator?, viewPortHandler: ViewPortHandler?)
+    public init(_ innnerChart: PieChartInnerPercentageView?,_ animator: Animator?,_ viewPortHandler: ViewPortHandler?)
     {
         super.init(chart: innnerChart, animator: animator, viewPortHandler: viewPortHandler)
         self.chart = chart
@@ -32,9 +32,7 @@ open class PieChartInnerPercentageCircleRenderer : PieChartRenderer {
     
     fileprivate func drawCenterPieChart(context: CGContext)
     {
-        guard
-            let chart = chart
-            else { return }
+        guard let chart = chart else { return }
         let radius = chart.radius
         let center = chart.centerCircleBox
         if chart.drawHoleEnabled
@@ -47,12 +45,12 @@ open class PieChartInnerPercentageCircleRenderer : PieChartRenderer {
                     chart.transparentCircleRadiusPercent > chart.holeRadiusPercent
                 {
                     context.setLineWidth(10.0);
-                    UIColor.red.set()
+                    _innerChart!.negativeColor.set()
                     context.addArc(center: CGPoint.init(x:  center.x , y: center.y), radius: (radius + 15)/2 , startAngle: 0.0, endAngle: CGFloat(M_PI * 2.0), clockwise: true)
                     context.strokePath();
                     
                     context.setLineWidth(10.0);
-                    UIColor.green.set()
+                    _innerChart!.postiveColor.set()
                     context.addArc(center: CGPoint.init(x:  center.x, y: center.y), radius: (radius + 15)/2 , startAngle: CGFloat( M_PI * 2.0), endAngle: CGFloat(M_PI * 2.0 * (_innerChart!.innerCirclePercentage/100)), clockwise: true)
                     context.strokePath();
                 }
