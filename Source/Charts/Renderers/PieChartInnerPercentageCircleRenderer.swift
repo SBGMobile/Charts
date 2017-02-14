@@ -26,6 +26,7 @@ open class PieChartInnerPercentageCircleRenderer : PieChartRenderer {
     
     
     open override func drawExtras(context: CGContext) {
+        super.drawExtras(context: context)
         drawCenterPieChart(context: context)
     }
 
