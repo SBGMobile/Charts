@@ -30,8 +30,8 @@ open class PieChartInnerPercentageView : PieChartView {
     {
         super.init(coder: aDecoder)
     }
-
-    override func initialize() {
+    
+    open override func initialize() {
         super.initialize()
         renderer = PieChartInnerPercentageCircleRenderer(self, _animator, _viewPortHandler)
         _xAxis = nil
